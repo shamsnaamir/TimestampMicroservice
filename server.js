@@ -31,7 +31,11 @@ app.get('/api/:year-:mounth-:day', function (req, res) {
 
 app.get('/api/:timestamp', function (req, res) {
   let date = new Date(+req.params.timestamp);
-  res.send({unix:+req.params.timestamp,utc:date.toUTCString()})
+  res.send({unix:date.getTime(),utc:date.toUTCString()})
+})
+app.get('/api', function (req, res) {
+  let date = new Date();
+  res.send({unix:date.getTime(),utc:date.toUTCString()})
 })
 
 
