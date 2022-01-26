@@ -1,0 +1,23 @@
+{
+	"name": "timezone-microservice-amirreza-shams",
+	"version": "0.0.1",
+	"description": "Timezone Microservice By Amirreza Shams",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.12.4",
+		"cors": "^2.8.0"
+	},
+	"repository": {
+		"type": "git"
+	},
+	"keywords": [
+		"node",
+		"hyperdev",
+		"express",
+		"shamsnaamir"
+	],
+	"license": "MIT"
+}
