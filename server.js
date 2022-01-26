@@ -23,14 +23,15 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get('/api/:year-:mounth-:day', function (req, res) {
-  let date = new Date( req.params.year+" "+req.params.mounth+" "+req.params.day+" gmt");
-  let ts = date.getTime();
-  res.send({unix:ts,utc:date.toUTCString()})
-})
-
 app.get('/api/:timestamp', function (req, res) {
   let date = new Date(+req.params.timestamp);
+  if(!(date instanceof Date && isFinite(date))){
+  date =  new Date(req.params.timestamp);
+  }
+  console.log(req.params.timestamp)
+  if(!(date instanceof Date && isFinite(date)))
+  res.send({ error : "Invalid Date" })
+  
   res.send({unix:date.getTime(),utc:date.toUTCString()})
 })
 app.get('/api', function (req, res) {
